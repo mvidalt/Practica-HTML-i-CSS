@@ -13,19 +13,7 @@ header {
   padding: 40px;
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-li {
-  margin: 0 10px;
-}
-a {
-  color: #fff;
-  text-decoration: none;
-}
+
 
 /* Establecer los estilos para la sección principal */
 main {
@@ -91,27 +79,6 @@ padding: 20px;
 }
 }
 
-/* Establecer los estilos para pantallas móviles */
-@media screen and (max-width: 767px) {
-h1 {
-font-size: 2em;
-}
-.grid-container {
-grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-}
-.grid-item {
-margin: 5px;
-padding: 5px;
-}
-.flex-container {
-flex-wrap: wrap;
-}
-.flex-item {
-margin: 5px;
-padding: 10px;
-}
-}
-
 
 /* Estilo para el menu desplegable */
 .navbar {
@@ -120,7 +87,7 @@ padding: 10px;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: 1;
 }
 
 .navbar-nav {
@@ -246,15 +213,7 @@ div.menu a:hover {
   }
 }
 
-nav ul {
-display: flex;
-justify-content: space-between;
-list-style: none;
-}
 
-nav .contacto {
-margin-left: auto;
-}
 
 
 /* Formulario */
@@ -276,6 +235,7 @@ position: fixed;
 bottom: 0;
 left: 0;
 width: 100%;
+z-index: 10;
 }
 
 /* Estilos del formulario */
@@ -302,7 +262,7 @@ width: 100%;
 padding: 10px;
 margin-bottom: 20px;
 border: 1px solid #ccc;
-border-radius: 3px;
+border-radius: 15px;
 box-sizing: border-box;
 font-size: 16px;
 }
@@ -330,7 +290,7 @@ background-color: #225689;
 
 label, input {
   display: block;
-  width: 100%;
+  width: 200px;
   margin-bottom: 10px;
 }
 
@@ -392,7 +352,9 @@ thead{
   grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
   gap: 220px;
   margin-bottom: 2em;
-}
+    animation: mi-animacion 1s ease-in-out infinite;
+  }
+  
 
 
 .item {
@@ -411,4 +373,152 @@ thead{
   margin-top: 10px;
   font-size: 14px;
   color: #666;
+}
+
+/* Animaciones */
+.rotar {
+  animation: rotacion 5s linear infinite;
+}
+
+@keyframes rotacion {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes my-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+  @keyframes mi-animacion {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+  .titulo {
+    animation: deslizar 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes deslizar {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(300px);
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  table td {
+    animation-name: fadeIn;
+    animation-duration: 3s;
+  }
+  
+
+
+
+
+@keyframes move-up-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animated {
+  animation: fadeIn2 10s ease;
+}
+
+@keyframes fadeIn2 {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Hacer invisible el checkbox */
+#toggle-sidebar, label[for="toggle-sidebar"] {
+  display: none;
+}
+
+
+/* Establecer los estilos para pantallas móviles */
+
+@media only screen and (max-width: 760px){
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-250px);
+    display: block;
+  }
+  
+  #sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  #sidebar li {
+    border-bottom: 1px solid #555;
+  }
+  
+  #sidebar a {
+    display: block;
+    padding: 15px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  #toggle-sidebar {
+    display: none;
+  }
+  
+  label[for="toggle-sidebar"] {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #toggle-sidebar:checked ~ #sidebar {
+    transform: translateX(0);
+  }
 }
