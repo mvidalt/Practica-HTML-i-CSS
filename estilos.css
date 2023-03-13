@@ -283,7 +283,7 @@ width: 100%;
 .formulario {
 width: 30em;
 background-color: #fff;
-padding: 50px;
+padding: 55px;
 border-radius: 5px;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
@@ -385,6 +385,14 @@ thead{
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
+
+.smallgallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  gap: 220px;
+  margin-bottom: 2em;
+}
+
 
 .item {
   display: flex;
